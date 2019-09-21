@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/SNES - Chrono Trigger - Cursed Woods.png" type="Texture" id=1]
+
+[node name="tileset2" type="Node2D"]
+
+[node name="celTileset" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 128, 576, 32, 32 )
+
+[node name="celTileset2" type="Sprite" parent="."]
+position = Vector2( 32, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96, 512, 32, 32 )
+
+[node name="celTileset3" type="Sprite" parent="."]
+position = Vector2( 64, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 128, 320, 32, 32 )
+
+[node name="celTileset4" type="Sprite" parent="."]
+position = Vector2( 96, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96, 224, 32, 32 )
+
+[node name="celTileset5" type="Sprite" parent="."]
+position = Vector2( 128, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 128, 704, 32, 32 )
+
+[node name="celTileset6" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 160, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96, 288, 32, 32 )
+
+[node name="body" type="StaticBody2D" parent="celTileset6"]
+
+[node name="poly" type="CollisionPolygon2D" parent="celTileset6/body"]
+polygon = PoolVector2Array( 0, 0, 0, 32, 32, 32, 32, 0 )

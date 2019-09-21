@@ -16,7 +16,15 @@ _global_script_class_icons={
 [application]
 
 config/name="7GameJamUnivali1"
+run/main_scene="res://scenes/main.tscn"
 config/icon="res://icon.png"
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="darkMinion"
+2d_physics/layer_3="lightMinion"
+2d_physics/layer_4="wall"
 
 [rendering]
 
