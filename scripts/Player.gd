@@ -41,5 +41,5 @@ func _physics_process(delta):
 	move_and_slide(Velocity)
 
 #Drop Ball
-#if get_node("Global").PlayerBall == 1 and Input.
+if get_node("Global").PlayerBall == 1 and Input.
 	

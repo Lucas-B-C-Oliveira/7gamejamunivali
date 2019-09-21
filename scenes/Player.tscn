@@ -7,9 +7,7 @@
 extents = Vector2( 31.2335, 30.1173 )
 
 [node name="Player" type="KinematicBody2D"]
-editor/display_folded = true
 script = ExtResource( 1 )
-Collected = null
 
 [node name="PlayerSprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
