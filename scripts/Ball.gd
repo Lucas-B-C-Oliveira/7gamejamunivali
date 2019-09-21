@@ -9,7 +9,6 @@ func _process(delta):
 
 
 func _on_Ball_body_entered(body):
-	print(global_position)
 	if body.has_method("get_minion") and !body.get_minion:
 		body.get_minion(self)
 	

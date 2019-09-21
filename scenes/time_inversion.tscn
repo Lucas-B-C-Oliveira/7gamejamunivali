@@ -5,5 +5,6 @@
 [node name="time_inversion" type="ColorRect"]
 margin_right = 40.0
 margin_bottom = 40.0
-rect_scale = Vector2( 5.74006, 0.475383 )
+rect_scale = Vector2( 4.34301, 0.337645 )
+color = Color( 0, 1, 0.203922, 1 )
 script = ExtResource( 1 )

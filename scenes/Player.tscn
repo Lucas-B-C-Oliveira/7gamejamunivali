@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/glooRotated.png" type="Texture" id=2]
+[ext_resource path="res://scenes/time_inversion.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -19,3 +20,19 @@ region_rect = Rect2( 0, 0, 32, 32 )
 position = Vector2( 15.9357, 17.1979 )
 shape = SubResource( 1 )
 one_way_collision_margin = 0.0
+
+[node name="timer_timInversion" type="Timer" parent="."]
+wait_time = 0.01
+
+[node name="time_inversion" parent="." instance=ExtResource( 3 )]
+margin_left = -6.0
+margin_top = 40.0
+margin_right = 35.0
+margin_bottom = 115.0
+rect_scale = Vector2( 1.57245, 0.108783 )
+
+[node name="timer_recup_inversionBar" type="Timer" parent="."]
+wait_time = 0.01
+[connection signal="timeout" from="timer_timInversion" to="." method="_on_timer_timInversion_timeout"]
+[connection signal="ready" from="timer_recup_inversionBar" to="." method="_on_timer_recup_inversionBar_ready"]
+[connection signal="timeout" from="timer_recup_inversionBar" to="." method="_on_timer_recup_inversionBar_timeout"]
