@@ -2,6 +2,8 @@ extends Area2D
 
 
 func _ready():
+	print(get_groups())
+	self.connect("death_minions", self , "on_death_all_minions")
 	pass
 
 func _process(delta):
@@ -11,9 +13,7 @@ func _process(delta):
 func _on_Ball_body_entered(body):
 	if body.has_method("get_minion") and body.get_minion != null:
 		body.get_minion(self)
-	
-#	if get_node("/root/Global").PlayerBall == 0:
-#		get_node("/root/Global").PlayerBall = 1
-##		queue_free()
-	pass
-	
+
+func on_death_all_minions():
+	print("Chamou a Death")
+	self.queue_free()

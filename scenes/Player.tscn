@@ -23,6 +23,7 @@ shape = SubResource( 1 )
 one_way_collision_margin = 0.0
 
 [node name="TelaEscura_ver3" type="Sprite" parent="CollisionShape2D"]
+visible = false
 position = Vector2( 38.1327, 47.5601 )
 texture = ExtResource( 3 )
 

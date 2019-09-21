@@ -1,7 +1,7 @@
 extends ColorRect
 
-onready var init_ret_size = rect_size
-var scale = 1 setget set_scale
+export onready var init_ret_size = rect_size
+export var scale = 1 setget set_scale
 
 func _ready():
 	pass

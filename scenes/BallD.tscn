@@ -6,7 +6,6 @@
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="BallL" type="Area2D"]
-modulate = Color( 1, 0.423529, 0, 1 )
 position = Vector2( 0.540359, 1.62109 )
 script = ExtResource( 1 )
 
@@ -17,6 +16,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.00784314, 0, 0, 1 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true

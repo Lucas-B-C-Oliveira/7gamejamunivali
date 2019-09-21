@@ -13,8 +13,8 @@ var init_bar_inversion_life = bar_inversion_life
 
 var kill_minion = false setget set_kill_minion
 
-signal encherBarra
-signal desencherBarra
+signal change_situation(situation_of_player)
+
 
 
 func _ready():
@@ -77,7 +77,7 @@ func _physics_process(delta):
 
 #Drop Ball
 #if get_node("Global").PlayerBall == 1 and Input.
-	
+
 func get_minion(minion):
 	minion_getted = minion
 	get_minion = true
@@ -92,7 +92,11 @@ func set_kill_minion(val):
 
 func _on_timer_timInversion_timeout():
 	if bar_inversion_life <= 0:
+		$timer_timInversion.stop()
 		situation_of_player = !situation_of_player
+		emit_signal("change_situation", situation_of_player)
+		return
+	
 	if get_minion:
 		bar_inversion_life -= .01
 		var scale = float(bar_inversion_life) / float(init_bar_inversion_life)
