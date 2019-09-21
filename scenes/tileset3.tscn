@@ -1,0 +1,113 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Sprute.png" type="Texture" id=1]
+[ext_resource path="res://assets/default_tiles_x.png" type="Texture" id=2]
+
+[node name="tileset3" type="Node2D"]
+
+[node name="tile" type="Sprite" parent="."]
+editor/display_folded = true
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="tile"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tile/StaticBody2D"]
+polygon = PoolVector2Array( 0, 0, 0, 32, 32, 32, 32, 0 )
+
+[node name="tile2" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 32, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96, 0, 32, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="tile2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tile2/StaticBody2D"]
+polygon = PoolVector2Array( 0, 0, 0, 32, 32, 32, 32, 0 )
+
+[node name="tile3" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 64, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 192, 0, 32, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="tile3"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tile3/StaticBody2D"]
+polygon = PoolVector2Array( 0, 0, 0, 32, 32, 32, 32, 0 )
+
+[node name="tile4" type="Sprite" parent="."]
+position = Vector2( 96, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 32, 64, 32, 32 )
+
+[node name="tile5" type="Sprite" parent="."]
+position = Vector2( 128, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 160, 32, 32 )
+
+[node name="tile6" type="Sprite" parent="."]
+position = Vector2( 160, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 128, 32, 32 )
+
+[node name="tile7" type="Sprite" parent="."]
+position = Vector2( 0, 32 )
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="tile8" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 32, 0, 32, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="tile8"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tile8/StaticBody2D"]
+polygon = PoolVector2Array( 0, 0, 0, 32, 32, 32, 32, 0 )
+
+[node name="tile9" type="Sprite" parent="."]
+position = Vector2( 64, 32 )
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 192, 0, 32, 32 )
+
+[node name="tile10" type="Sprite" parent="."]
+position = Vector2( 96, 32 )
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 160, 0, 32, 32 )
+
+[node name="tile11" type="Sprite" parent="."]
+position = Vector2( 128, 32 )
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 224, 0, 32, 32 )
+
+[node name="tile12" type="Sprite" parent="."]
+position = Vector2( 160, 32 )
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 160, 32, 32, 32 )
