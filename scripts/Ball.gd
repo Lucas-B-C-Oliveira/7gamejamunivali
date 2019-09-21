@@ -9,7 +9,7 @@ func _process(delta):
 
 
 func _on_Ball_body_entered(body):
-	if body.has_method("get_minion") and !body.get_minion:
+	if body.has_method("get_minion") and body.get_minion != null:
 		body.get_minion(self)
 	
 #	if get_node("/root/Global").PlayerBall == 0:

@@ -7,9 +7,11 @@ export var Collected = 0
 var get_minion = false
 var minion_getted
 
-var situation_of_player = ["dark" , "light"]
+var situation_of_player
 var bar_inversion_life = 5
 var init_bar_inversion_life = bar_inversion_life
+
+var kill_minion = false setget set_kill_minion
 
 signal encherBarra
 signal desencherBarra
@@ -41,19 +43,26 @@ func _physics_process(delta):
 	
 	if get_minion:
 		minion_getted.global_position = self.global_position + Vector2(-10,0)
+	else:
+		pass
 	
-	if $timer_timInversion.is_stopped() and $timer_recup_inversionBar.is_stopped() and !get_minion and bar_inversion_life < init_bar_inversion_life:
-		print(bar_inversion_life)
-		$timer_recup_inversionBar.start()
-	
-	if bar_inversion_life >= init_bar_inversion_life and !$timer_recup_inversionBar.is_stopped():
-		$timer_recup_inversionBar.stop()
 	
 	
 	if Input.is_action_just_pressed("drop"):
-		if get_minion:
+		if get_minion and !kill_minion:
 			get_minion = false
-			$timer_timInversion.stop()
+
+		elif get_minion and kill_minion:
+			get_minion = false
+			minion_getted.queue_free()
+			kill_minion = false
+			#Somar os pontos
+			if situation_of_player:
+				pass
+				#somar ponto de luz
+			elif !situation_of_player:
+				pass
+				#Somar ponto de treva
 		
 
 #Movement
@@ -76,21 +85,26 @@ func get_minion(minion):
 	
 	
 
+func set_kill_minion(val):
+	kill_minion = val
 
 
 
 func _on_timer_timInversion_timeout():
 	if bar_inversion_life <= 0:
 		situation_of_player = !situation_of_player
-	bar_inversion_life -= .01
-	var scale = float(bar_inversion_life) / float(init_bar_inversion_life)
-	$time_inversion.scale = scale
-	$timer_timInversion.start()
+	if get_minion:
+		bar_inversion_life -= .01
+		var scale = float(bar_inversion_life) / float(init_bar_inversion_life)
+		$time_inversion.scale = scale
+		$timer_timInversion.start()
+	
+	elif !get_minion and bar_inversion_life < init_bar_inversion_life:
+		bar_inversion_life += .01
+		var scale = float(bar_inversion_life) / float(init_bar_inversion_life)
+		$time_inversion.scale = scale
+		$timer_timInversion.start()
+		
 
 
-func _on_timer_recup_inversionBar_timeout():
-	bar_inversion_life += .01
-	var scale = float(bar_inversion_life) / float(init_bar_inversion_life)
-	$time_inversion.scale = scale
-	$timer_recup_inversionBar.start()
 

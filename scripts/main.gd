@@ -25,7 +25,8 @@ func _ready():
 
 func _on_death_time_timeout():
 	if life <= 0:
-		print("TimeOut of win YOU LOSE")
+#		print("TimeOut of win YOU LOSE")
+		pass
 	life -= .01
 	var scale = float(life) / float(init_life)
 	$time_bar.scale = scale

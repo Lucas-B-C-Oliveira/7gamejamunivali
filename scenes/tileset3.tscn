@@ -31,7 +31,6 @@ region_rect = Rect2( 96, 0, 32, 32 )
 polygon = PoolVector2Array( 0, 0, 0, 32, 32, 32, 32, 0 )
 
 [node name="tile3" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 64, 0 )
 texture = ExtResource( 1 )
 centered = false
