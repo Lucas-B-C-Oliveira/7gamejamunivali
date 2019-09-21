@@ -14,7 +14,7 @@ func _ready():
 func _on_death_time_timeout():
 	if life <= 0:
 		print("a")
-	life -= 1
+	life -= .01
 	var scale = float(life) / float(init_life)
 	$time_bar.scale = scale
 	$death_time.start()

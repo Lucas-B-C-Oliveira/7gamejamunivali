@@ -16,20 +16,19 @@ _global_script_class_icons={
 [application]
 
 config/name="7GameJamUnivali1"
-run/main_scene="res://Player.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Global.gd"
+Global="*res://scripts/Global.gd"
 
-[input]
+[layer_names]
 
-Drop={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
- ]
-}
+2d_physics/layer_1="player"
+2d_physics/layer_2="darkMinion"
+2d_physics/layer_3="lightMinion"
+2d_physics/layer_4="wall"
 
 [rendering]
 
