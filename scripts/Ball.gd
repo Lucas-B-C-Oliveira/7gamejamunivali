@@ -9,8 +9,12 @@ func _process(delta):
 
 
 func _on_Ball_body_entered(body):
-	if get_node("/root/Global").PlayerBall == 0:
-		get_node("/root/Global").PlayerBall = 1
-		queue_free()
+	print(global_position)
+	if body.has_method("get_minion") and !body.get_minion:
+		body.get_minion(self)
+	
+#	if get_node("/root/Global").PlayerBall == 0:
+#		get_node("/root/Global").PlayerBall = 1
+##		queue_free()
 	pass
 	
