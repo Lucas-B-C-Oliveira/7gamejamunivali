@@ -56,7 +56,7 @@ func _input(event):
 func _physics_process(delta):
 	
 	if get_minion:
-		minion_getted.global_position = self.global_position + Vector2(-10,0)
+		minion_getted.global_position = self.global_position + Vector2(-2,0)
 	else:
 		pass
 		
@@ -75,7 +75,7 @@ func _physics_process(delta):
 			get_minion = false
 			minion_getted.queue_free()
 			kill_minion = false
-			#Somar os pontos
+			game_manager.add_score(1)
 			if situation_of_player:
 				pass
 				#somar ponto de luz
