@@ -31,10 +31,9 @@ texture = ExtResource( 3 )
 wait_time = 0.01
 
 [node name="time_inversion" parent="." instance=ExtResource( 4 )]
-margin_left = -6.0
-margin_top = 40.0
-margin_right = 35.0
-margin_bottom = 115.0
+margin_top = 32.0
+margin_right = 21.0
+margin_bottom = 107.0
 rect_scale = Vector2( 1.57245, 0.108783 )
 
 [node name="TelaEscura_ver3" type="Sprite" parent="."]

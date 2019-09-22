@@ -7,18 +7,26 @@ export var Collected = 0
 var get_minion = false
 var minion_getted
 
-var situation_of_player
+var situation_of_player setget set_situation_of_player , get_situation_of_player
 var bar_inversion_life = 5
 var init_bar_inversion_life = bar_inversion_life
 
 var kill_minion = false setget set_kill_minion
 
-signal change_situation(situation_of_player)
+
 
 
 
 func _ready():
 	pass # Replace with function body.
+
+func set_situation_of_player(val):
+	print("SETEI O PLAYER")
+	situation_of_player = val
+
+func get_situation_of_player():
+	print("Peguei O PLAYER")
+	return situation_of_player
 
 #directions
 func _input(event):
@@ -39,20 +47,31 @@ func _input(event):
 	if Input.is_action_just_released("ui_down"):
 		direction.y = 0
 
+#func _process(delta):
+#	if game_manager.ready_of_change_side:
+#		situation_of_player = !situation_of_player
+#		print("Mudei a situacao do Player")
+#		$
+
 func _physics_process(delta):
 	
 	if get_minion:
 		minion_getted.global_position = self.global_position + Vector2(-10,0)
 	else:
 		pass
+		
+	
+
 	
 	
 	
 	if Input.is_action_just_pressed("drop"):
 		if get_minion and !kill_minion:
 			get_minion = false
+			UIManager.minion_caught = false
 
 		elif get_minion and kill_minion:
+			UIManager.minion_caught = false
 			get_minion = false
 			minion_getted.queue_free()
 			kill_minion = false
@@ -81,6 +100,8 @@ func _physics_process(delta):
 func get_minion(minion):
 	minion_getted = minion
 	get_minion = true
+	UIManager.minion_caught = true
+	emit_signal("get_minion" , true)
 	$timer_timInversion.start()
 	
 	
@@ -90,25 +111,26 @@ func set_kill_minion(val):
 
 
 
-func _on_timer_timInversion_timeout():
-	if bar_inversion_life <= 0:
-		$timer_timInversion.stop()
-		situation_of_player = !situation_of_player
-		emit_signal("change_situation", situation_of_player)
-		return
-	
-	if get_minion:
-		bar_inversion_life -= .01
-		var scale = float(bar_inversion_life) / float(init_bar_inversion_life)
-		$time_inversion.scale = scale
-		$timer_timInversion.start()
-	
-	elif !get_minion and bar_inversion_life < init_bar_inversion_life:
-		bar_inversion_life += .01
-		var scale = float(bar_inversion_life) / float(init_bar_inversion_life)
-		$time_inversion.scale = scale
-		$timer_timInversion.start()
-		
+#func _on_timer_timInversion_timeout():
+#	if bar_inversion_life <= 0:
+#		$timer_timInversion.stop()
+#		situation_of_player = !situation_of_player
+##		emit_signal("change_situation", situation_of_player)
+#		return
+#
+#	if get_minion:
+#		UIManager.minion_caught= true
+#		bar_inversion_life -= .01
+#		var scale = float(bar_inversion_life) / float(init_bar_inversion_life)
+#		$time_inversion.scale = scale
+#		$timer_timInversion.start()
+#
+#	elif !get_minion and bar_inversion_life < init_bar_inversion_life:
+#		bar_inversion_life += .01
+#		var scale = float(bar_inversion_life) / float(init_bar_inversion_life)
+#		$time_inversion.scale = scale
+#		$timer_timInversion.start()
+#
 
 
 

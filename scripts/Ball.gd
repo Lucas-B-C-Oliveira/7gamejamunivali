@@ -15,5 +15,5 @@ func _on_Ball_body_entered(body):
 		body.get_minion(self)
 
 func on_death_all_minions():
-	print("Chamou a Death")
+	game_manager.add_score(1)
 	self.queue_free()

@@ -9,6 +9,9 @@ export var qntBalls = 5
 export var points = 0 setget set_points
 signal death_minions
 
+var bar_inversion_life = 5
+var init_bar_inversion_life = bar_inversion_life
+
 
 
 
@@ -18,30 +21,43 @@ func _ready():
 	yield(get_tree().create_timer(5) , "timeout")
 	spawn_minions(random_side())
 	
+func _process(delta):
+	if game_manager.ready_of_change_side:
+		game_manager.ready_of_change_side = false
+		on_change_situation_of_player($Player.get_situation_of_player())
+	
 
-func on_change_situation(situation_of_player):
-	#deletar os mínions já existentes
+func on_change_situation_of_player(situation_of_player):
+	print(situation_of_player)
 	if situation_of_player:
 		for i in get_tree().get_nodes_in_group("light_group"):
 			i.queue_free()
 		minions_group = "dark_group"
 		spawn_minions(dark_minion)
 		get_node("Player/timer_timInversion").start()
+		get_node("HUD/time_inversion_bar/timer_inversion_bar").start()
+		UIManager.set_caught_minion(false)
 		$Player.get_minion = false
 		$Player.minion_getted = null
-		$Player.bar_inversion_life = $Player.init_bar_inversion_life
-		get_node("Player/time_inversion").rect_size = get_node("Player/time_inversion").init_ret_size
+		$HUD.bar_inversion_life = $HUD.init_bar_inversion_life
+#		$Player.bar_inversion_life = $Player.init_bar_inversion_life
+		get_node("HUD/time_inversion_bar").rect_size = get_node("HUD/time_inversion_bar").init_ret_size
+#		get_node("Player/time_inversion").rect_size = get_node("Player/time_inversion").init_ret_size
 		return
-	else:
+	elif !situation_of_player:
 		for i in get_tree().get_nodes_in_group("dark_group"):
 			i.queue_free()
 		minions_group = "light_group"
 		spawn_minions(light_minion)
 		get_node("Player/timer_timInversion").start()
+		get_node("HUD/time_inversion_bar/timer_inversion_bar").start()
+		UIManager.set_caught_minion(false)
 		$Player.get_minion = false
 		$Player.minion_getted = null
-		$Player.bar_inversion_life = $Player.init_bar_inversion_life
-		get_node("Player/time_inversion").rect_size = get_node("Player/time_inversion").init_ret_size
+		$HUD.bar_inversion_life = $HUD.init_bar_inversion_life
+#		$Player.bar_inversion_life = $Player.init_bar_inversion_life
+		get_node("HUD/time_inversion_bar").rect_size = get_node("HUD/time_inversion_bar").init_ret_size
+#		get_node("Player/time_inversion").rect_size = get_node("Player/time_inversion").init_ret_size
 		return
 
 
@@ -51,7 +67,7 @@ func _on_death_time_timeout():
 		pass
 	life -= .01
 	var scale = float(life) / float(init_life)
-	$time_bar.scale = scale
+	$HUD/time_bar.scale = scale
 	$death_time.start()
 
 func set_points(val):
@@ -71,13 +87,18 @@ func spawn_minions(minions):
 func random_side():
 	randomize()
 	var side = randi() %  9 + 1
-	print(side)
 	if side > 5 :
 		minions_group = "dark_group"
+		$Player.set_situation_of_player(true)
+		print($Player.get_situation_of_player())
 		return dark_minion
 	else:
 		minions_group = "light_group"
+		$Player.set_situation_of_player(false)
+		print($Player.get_situation_of_player())
 		return light_minion
+	
+	
 
 
 
