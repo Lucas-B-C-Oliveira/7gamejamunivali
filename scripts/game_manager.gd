@@ -8,7 +8,7 @@ func _ready():
 
 
 func set_score(val):
-	print("Can write score. Use function add_score")
+	score = val
 
 func add_score(val):
 	score += val

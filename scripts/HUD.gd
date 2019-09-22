@@ -20,6 +20,7 @@ func _on_timer_inversion_bar_timeout():
 		$time_inversion_bar/timer_inversion_bar.stop()
 		get_parent().get_node("Player").set_situation_of_player(!get_parent().get_node("Player").get_situation_of_player())
 		game_manager.ready_of_change_side = true
+		game_manager.set_score(0)
 		return
 	
 
