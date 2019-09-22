@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/Bolinha/bolinha_do_bem.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 19.965
+radius = 30.0
 
 [node name="light_minion" type="Area2D"]
 script = ExtResource( 1 )
@@ -16,7 +16,7 @@ __meta__ = {
 }
 
 [node name="bolinha_do_bem" type="Sprite" parent="."]
-position = Vector2( -1.68986, 1.7362 )
-scale = Vector2( 0.182736, 0.182736 )
+position = Vector2( 1.07053, -1.7603 )
+scale = Vector2( -0.158, -0.158 )
 texture = ExtResource( 2 )
 [connection signal="body_entered" from="." to="." method="_on_Ball_body_entered"]

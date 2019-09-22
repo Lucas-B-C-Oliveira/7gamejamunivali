@@ -13,6 +13,7 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
+outline_color = Color( 0.945098, 1, 0, 1 )
 font_data = ExtResource( 6 )
 
 [node name="main" type="Node2D"]
@@ -34,7 +35,6 @@ position = Vector2( 864, 288 )
 position = Vector2( 256, 160 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
-editor/display_folded = true
 script = ExtResource( 5 )
 
 [node name="score" type="Label" parent="HUD"]

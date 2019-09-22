@@ -21,6 +21,7 @@ func _ready():
 	right_bar_pos = $HUD/time_inversion_bar.rect_global_position
 	left_bar_pos = $HUD/test.rect_global_position
 	$death_time.start()
+	get_node("HUD/score").add_color_override("font_color" , Color(1,.8,0,1))
 	$Player.connect("change_situation", self , "on_change_situation")
 	yield(get_tree().create_timer(.5) , "timeout")
 	spawn_minions(random_side())
@@ -31,11 +32,12 @@ func _process(delta):
 		on_change_situation_of_player($Player.get_situation_of_player())
 	
 	if game_manager.score >= qntBalls:
-		print("GANHOU")
+#		print("GANHOU")
+		pass
 	
 
 func on_change_situation_of_player(situation_of_player):
-	print(situation_of_player)
+#	print(situation_of_player)
 	if situation_of_player:
 		for i in get_tree().get_nodes_in_group("light_group"):
 			i.queue_free()
@@ -45,6 +47,7 @@ func on_change_situation_of_player(situation_of_player):
 		get_node("HUD/time_inversion_bar/timer_inversion_bar").start()
 		get_node("Player/black").visible = false
 		get_node("Player/white").visible = true
+		get_node("HUD/score").add_color_override("font_color" , Color(1,.8,0,1))
 		UIManager.set_caught_minion(false)
 		$HUD/test.rect_global_position = left_bar_pos
 		$HUD/time_inversion_bar.rect_global_position = right_bar_pos
@@ -86,7 +89,7 @@ func on_change_situation_of_player(situation_of_player):
 
 func _on_death_time_timeout():
 	if life <= 0:
-		print("TimeOut of win YOU LOSE")
+#		print("TimeOut of win YOU LOSE")
 		pass
 	life -= .01
 	var scale = float(life) / float(init_life)
@@ -104,6 +107,28 @@ func spawn_minions(minions):
 		var randX = rand_range(96, 1152)
 		var randY = rand_range(160 , 896)
 		auxball.global_position = Vector2(randX, randY)
+		if minions_group == "dark_group":
+			auxball.mySituation = 0
+		elif minions_group == "light_group":
+			auxball.mySituation = 1
+			
+	for i in range(qntBalls):
+		var newMinion
+		if minions == dark_minion:
+			newMinion = light_minion
+		elif minions == light_minion:
+			newMinion = dark_minion
+			
+		var auxball = newMinion.instance()
+		auxball.add_to_group(minions_group)
+		self.add_child(auxball)
+		var randX = rand_range(96, 1152)
+		var randY = rand_range(160 , 896)
+		auxball.global_position = Vector2(randX, randY)
+		if minions_group == "dark_group":
+			auxball.mySituation = 1
+		elif minions_group == "light_group":
+			auxball.mySituation = 0
 
 #
 
@@ -113,7 +138,7 @@ func random_side():
 	if side > 5 :
 		minions_group = "dark_group"
 		$Player.set_situation_of_player(true)
-		print($Player.get_situation_of_player())
+#		print($Player.get_situation_of_player())
 		get_node("Player/black").visible = false
 		get_node("Player/white").visible = true
 		$HUD/test.rect_global_position = left_bar_pos
@@ -125,7 +150,7 @@ func random_side():
 	else:
 		minions_group = "light_group"
 		$Player.set_situation_of_player(false)
-		print($Player.get_situation_of_player())
+#		print($Player.get_situation_of_player())
 		get_node("Player/black").visible = true
 		get_node("Player/white").visible = false
 		$HUD/test.rect_global_position = right_bar_pos
