@@ -13,6 +13,10 @@ func _process(delta):
 func _on_Ball_body_entered(body):
 	if body.has_method("get_minion") and body.get_minion != null:
 		body.get_minion(self)
+		
+#	if body.has_method("kill_minion"):
+#		game_manager.add_score(1)
+#		self.queue_free()
 
 func on_death_all_minions():
 	game_manager.add_score(1)

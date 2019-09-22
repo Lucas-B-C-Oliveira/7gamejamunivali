@@ -57,6 +57,7 @@ margin_bottom = -308.914
 rect_scale = Vector2( 0.198956, 1.83605 )
 
 [node name="time_inversion_bar" parent="HUD" instance=ExtResource( 8 )]
+editor/display_folded = true
 margin_left = 1190.89
 margin_top = 110.84
 margin_right = 1230.89
@@ -68,12 +69,21 @@ rect_scale = Vector2( 2.32101, 0.467933 )
 wait_time = 0.01
 autostart = true
 
+[node name="test" parent="HUD" instance=ExtResource( 8 )]
+margin_left = 69.1089
+margin_top = 110.84
+margin_right = 109.109
+margin_bottom = 150.84
+rect_rotation = -90.0
+rect_scale = Vector2( 2.32101, 0.467933 )
+script = null
+
 [node name="imagem_light" type="Sprite" parent="HUD"]
 position = Vector2( 1131.5, 61.8398 )
 scale = Vector2( 0.143613, 0.143613 )
 texture = ExtResource( 9 )
 
-[node name="LAYOUT INTERFACE GJ (4)" type="Sprite" parent="HUD"]
+[node name="imagem_black" type="Sprite" parent="HUD"]
 position = Vector2( 146.986, 61.5145 )
 scale = Vector2( 0.142031, 0.142031 )
 texture = ExtResource( 10 )

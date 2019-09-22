@@ -3,7 +3,7 @@ extends Node2D
 var life = 17
 onready var init_life = life
 var dark_minion = preload("res://scenes/BallD.tscn")
-var light_minion = preload("res://scenes/BallL.tscn")
+var light_minion = preload("res://scenes/MinionLifht.tscn")
 var minions_group
 export var qntBalls = 5
 export var points = 0 setget set_points
@@ -11,11 +11,15 @@ signal death_minions
 
 var bar_inversion_life = 5
 var init_bar_inversion_life = bar_inversion_life
+var left_bar_pos 
+var right_bar_pos
 
 
 
 
 func _ready():
+	right_bar_pos = $HUD/time_inversion_bar.rect_global_position
+	left_bar_pos = $HUD/test.rect_global_position
 	$death_time.start()
 	$Player.connect("change_situation", self , "on_change_situation")
 	yield(get_tree().create_timer(.5) , "timeout")
@@ -40,8 +44,14 @@ func on_change_situation_of_player(situation_of_player):
 		get_node("Player/timer_timInversion").start()
 		get_node("HUD/time_inversion_bar/timer_inversion_bar").start()
 		UIManager.set_caught_minion(false)
+		$HUD/test.rect_global_position = left_bar_pos
+		$HUD/time_inversion_bar.rect_global_position = right_bar_pos
+		$HUD/imagem_black.self_modulate = Color(1, 1, 1, .5)
+		$HUD/imagem_light.self_modulate = Color(1, 1, 1, 1)
+		$HUD/test.color = Color(0,1,.5,.1)
 		$Player.get_minion = false
 		$Player.minion_getted = null
+		$Player/anim.play("light_down")
 		$HUD.bar_inversion_life = $HUD.init_bar_inversion_life
 #		$Player.bar_inversion_life = $Player.init_bar_inversion_life
 		get_node("HUD/time_inversion_bar").rect_size = get_node("HUD/time_inversion_bar").init_ret_size
@@ -55,8 +65,14 @@ func on_change_situation_of_player(situation_of_player):
 		get_node("Player/timer_timInversion").start()
 		get_node("HUD/time_inversion_bar/timer_inversion_bar").start()
 		UIManager.set_caught_minion(false)
+		$HUD/test.rect_global_position = right_bar_pos
+		$HUD/time_inversion_bar.rect_global_position = left_bar_pos
+		$HUD/imagem_light.self_modulate = Color(1, 1, 1, .5)
+		$HUD/imagem_black.self_modulate = Color(1, 1, 1, 1)
+		$HUD/test.color = Color(0,1,.5,.1)
 		$Player.get_minion = false
 		$Player.minion_getted = null
+		$Player/anim.play("dark_down")
 		$HUD.bar_inversion_life = $HUD.init_bar_inversion_life
 #		$Player.bar_inversion_life = $Player.init_bar_inversion_life
 		get_node("HUD/time_inversion_bar").rect_size = get_node("HUD/time_inversion_bar").init_ret_size
@@ -94,11 +110,21 @@ func random_side():
 		minions_group = "dark_group"
 		$Player.set_situation_of_player(true)
 		print($Player.get_situation_of_player())
+		$HUD/test.rect_global_position = left_bar_pos
+		$HUD/time_inversion_bar.rect_global_position = right_bar_pos
+		$HUD/test.color = Color(0,1,.5,.1)
+		$HUD/imagem_black.self_modulate = Color(1, 1, 1, .5)
+		$HUD/imagem_light.self_modulate = Color(1, 1, 1, 1)
 		return dark_minion
 	else:
 		minions_group = "light_group"
 		$Player.set_situation_of_player(false)
 		print($Player.get_situation_of_player())
+		$HUD/test.rect_global_position = right_bar_pos
+		$HUD/time_inversion_bar.rect_global_position = left_bar_pos
+		$HUD/test.color = Color(0,1,.5,.1)
+		$HUD/imagem_light.self_modulate = Color(1, 1, 1, .5)
+		$HUD/imagem_black.self_modulate = Color(1, 1, 1, 1)
 		return light_minion
 	
 	

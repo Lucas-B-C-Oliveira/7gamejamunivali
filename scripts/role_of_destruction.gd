@@ -17,3 +17,5 @@ func _on_Area2D_body_entered(body):
 	if body.has_method("set_kill_minion"):
 		body.set_kill_minion(true)
 	
+func kill_minion():
+	pass
