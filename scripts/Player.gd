@@ -91,13 +91,15 @@ func _physics_process(delta):
 		dir_x += 1
 		if situation_of_player and get_minion:
 #			$anim.play("lgiht_left_ball", true)
-			$anim.play("light_right_ball", true)
+#			$anim.play("light_right_ball", true)
+			pass
 		elif situation_of_player and !get_minion:
 #			$anim.play("light_left", true)
 			$anim.play("light_right", true)
 		elif !situation_of_player and get_minion:
 #			$anim.play("dark_left_ball", true)
-			$anim.play("dark_right_ball", true)
+#			$anim.play("dark_right_ball", true)
+			pass
 		elif !situation_of_player and !get_minion:
 #			$anim.play("dark_left", true)
 			$anim.play("dark_right", true)
@@ -106,13 +108,15 @@ func _physics_process(delta):
 		dir_x -= 1
 		
 		if situation_of_player and get_minion:
-			$anim.play("light_left_ball", true)
+#			$anim.play("light_left_ball", true)
+			pass
 #			$anim.play("lgiht_right_ball", true)
 		elif situation_of_player and !get_minion:
 			$anim.play("light_left", true)
 #			$anim.play("light_right", true)
 		elif !situation_of_player and get_minion:
-			$anim.play("dark_left_ball", true)
+#			$anim.play("dark_left_ball", true)
+			pass
 #			$anim.play("dark_right_ball", true)
 		elif !situation_of_player and !get_minion:
 			$anim.play("dark_left", true)
@@ -123,13 +127,15 @@ func _physics_process(delta):
 #		$anim_light.play("up", true)
 		
 		if situation_of_player and get_minion:
-			$anim.play("light_up_ball", true)
+#			$anim.play("light_up_ball", true)
+			pass
 #			$anim_light.play("lgiht_right_ball", false)
 		elif situation_of_player and !get_minion:
 			$anim.play("light_up", true)
 #			$anim_light.play("light_right", false)
 		elif !situation_of_player and get_minion:
-			$anim.play("dark_up_ball", true)
+#			$anim.play("dark_up_ball", true)
+			pass
 #			$anim_light.play("dark_right_ball", false)
 		elif !situation_of_player and !get_minion:
 			$anim.play("dark_up", true)
@@ -139,13 +145,15 @@ func _physics_process(delta):
 #		$anim.play("down", true)
 		
 		if situation_of_player and get_minion:
-			$anim.play("light_down_ball", true)
+#			$anim.play("light_down_ball", true)
+			pass
 #			$anim_light.play("lgiht_right_ball", false)
 		elif situation_of_player and !get_minion:
 			$anim.play("light_down", true)
 #			$anim_light.play("light_right", false)
 		elif !situation_of_player and get_minion:
-			$anim.play("dark_down_ball", true)
+#			$anim.play("dark_down_ball", true)
+			pass
 #			$anim_light.play("dark_right_ball", false)
 		elif !situation_of_player and !get_minion:
 			$anim.play("dark_down", true)
