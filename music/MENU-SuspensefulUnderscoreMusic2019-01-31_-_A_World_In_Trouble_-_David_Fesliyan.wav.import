@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MENU-SuspensefulUnderscoreMusic2019-01-31_-_A_World_In_Trouble_-_David_Fesliyan.wav-ddebf84e5e75e7cfda9767ce156f59a0.sample"
+
+[deps]
+
+source_file="res://music/MENU-SuspensefulUnderscoreMusic2019-01-31_-_A_World_In_Trouble_-_David_Fesliyan.wav"
+dest_files=[ "res://.import/MENU-SuspensefulUnderscoreMusic2019-01-31_-_A_World_In_Trouble_-_David_Fesliyan.wav-ddebf84e5e75e7cfda9767ce156f59a0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

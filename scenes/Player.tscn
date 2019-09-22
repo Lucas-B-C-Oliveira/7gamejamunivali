@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/time_inversion.tscn" type="PackedScene" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://assets/New/Personagem/Versão normal/Branco/Sem bolinha/branco_andando_tras_1.png" type="Texture" id=41]
 [ext_resource path="res://assets/New/Personagem/Versão normal/Branco/Sem bolinha/branco_andando_tras_2.png" type="Texture" id=42]
 [ext_resource path="res://assets/New/Personagem/Versão normal/Branco/Sem bolinha/branco_andando_tras_3.png" type="Texture" id=43]
+[ext_resource path="res://assets/telaEscura/TelaEscura_ver1.png" type="Texture" id=44]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -148,7 +149,7 @@ margin_right = 3.46284
 margin_bottom = 89.1631
 rect_scale = Vector2( 1.57245, 0.108783 )
 
-[node name="TelaBranca_ver6" type="Sprite" parent="."]
+[node name="white" type="Sprite" parent="."]
 visible = false
 modulate = Color( 1, 1, 1, 0.435294 )
 position = Vector2( 33.5232, 39.9089 )
@@ -164,4 +165,9 @@ animation = "light_up_ball"
 scale = Vector2( 0.233294, 0.233294 )
 frames = SubResource( 2 )
 animation = "light_up"
+
+[node name="black" type="Sprite" parent="."]
+visible = false
+position = Vector2( 5.35187, 32.524 )
+texture = ExtResource( 44 )
 [connection signal="timeout" from="timer_timInversion" to="." method="_on_timer_timInversion_timeout"]

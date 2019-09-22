@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/JOGO-2018-02-15_-_Unfolding_Revelation_-_David_Fesliyan.wav-15aad87c616e6fec381946e169590ab8.sample"
+
+[deps]
+
+source_file="res://music/JOGO-2018-02-15_-_Unfolding_Revelation_-_David_Fesliyan.wav"
+dest_files=[ "res://.import/JOGO-2018-02-15_-_Unfolding_Revelation_-_David_Fesliyan.wav-15aad87c616e6fec381946e169590ab8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

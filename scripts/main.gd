@@ -43,6 +43,8 @@ func on_change_situation_of_player(situation_of_player):
 		spawn_minions(dark_minion)
 		get_node("Player/timer_timInversion").start()
 		get_node("HUD/time_inversion_bar/timer_inversion_bar").start()
+		get_node("Player/black").visible = false
+		get_node("Player/white").visible = true
 		UIManager.set_caught_minion(false)
 		$HUD/test.rect_global_position = left_bar_pos
 		$HUD/time_inversion_bar.rect_global_position = right_bar_pos
@@ -64,6 +66,8 @@ func on_change_situation_of_player(situation_of_player):
 		spawn_minions(light_minion)
 		get_node("Player/timer_timInversion").start()
 		get_node("HUD/time_inversion_bar/timer_inversion_bar").start()
+		get_node("Player/black").visible = true
+		get_node("Player/white").visible = false
 		UIManager.set_caught_minion(false)
 		$HUD/test.rect_global_position = right_bar_pos
 		$HUD/time_inversion_bar.rect_global_position = left_bar_pos
@@ -110,6 +114,8 @@ func random_side():
 		minions_group = "dark_group"
 		$Player.set_situation_of_player(true)
 		print($Player.get_situation_of_player())
+		get_node("Player/black").visible = false
+		get_node("Player/white").visible = true
 		$HUD/test.rect_global_position = left_bar_pos
 		$HUD/time_inversion_bar.rect_global_position = right_bar_pos
 		$HUD/test.color = Color(0,1,.5,.1)
@@ -120,6 +126,8 @@ func random_side():
 		minions_group = "light_group"
 		$Player.set_situation_of_player(false)
 		print($Player.get_situation_of_player())
+		get_node("Player/black").visible = true
+		get_node("Player/white").visible = false
 		$HUD/test.rect_global_position = right_bar_pos
 		$HUD/time_inversion_bar.rect_global_position = left_bar_pos
 		$HUD/test.color = Color(0,1,.5,.1)
